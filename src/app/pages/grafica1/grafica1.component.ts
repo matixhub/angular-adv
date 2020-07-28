@@ -6,11 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styles: [
   ]
 })
-export class Grafica1Component implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class Grafica1Component {
+ 
+  labels1: string[] = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'];
+  data1: number[] = [350, 450, 100];
 }
