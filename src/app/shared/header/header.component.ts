@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { UsuarioService } from 'src/app/services/usuario.service';
+import { Usuario } from 'src/app/models/usuario.model';
 
 @Component({
   selector: 'app-header',
@@ -6,11 +10,18 @@ import { Component, OnInit } from '@angular/core';
   styles: [
   ]
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
 
-  constructor() { }
+  public usuario: Usuario;
 
-  ngOnInit(): void {
+  constructor(private usuarioService : UsuarioService, private router: Router) {
+    this.usuario = usuarioService.usuario; //como es get no necesita ()
+   }
+
+  logout() {
+
+    this.usuarioService.logout();
+    this.router.navigateByUrl('/login');
   }
 
 }
